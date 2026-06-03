@@ -1,105 +1,135 @@
-html{
+html {
     scroll-behavior: smooth;
 }
-body{
+
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
-    padding: 0;
-    width: 100%; 
-    font-family: "League Spartan", serif;
+    width: 100%;
+    font-family: "League Spartan", sans-serif;
     overflow-x: hidden;
-    background-color: #f4f0e9;
+    color: #17212b;
+    background: #f4f0e9;
 }
-#backhome{
-    background-image: url(pexels-marina-zasorina-7634436.jpg);
-    background-size: 100%;
-    background-position: center ;
-    width: 100%;
+
+#backhome {
+    min-height: 52vh;
+    background-image:
+        linear-gradient(180deg, rgba(15, 34, 49, 0.42), rgba(15, 34, 49, 0.18) 42%, rgba(15, 34, 49, 0.56)),
+        url(pexels-marina-zasorina-7634436.jpg);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 50vh;
-    border-radius: 0em 0em 2em 2em;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 24px 60px rgba(37, 64, 85, 0.25);
 }
-nav{
+
+nav {
+    position: relative;
     display: flex;
-    height: 25%;
-    width: 100%;
+    height: 96px;
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    border-radius: 2em;
-    border-bottom: 3px solid white ;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
-#logo{
+
+#logo {
     position: absolute;
-    left: 48%;
-    width: 9vh;
-    height: 9vh;
-    border-radius: 20%;
-}
-#baton{
-    height: 5vh;
-    width: 6vh;
-    margin: 10px;
-}
-#barre{
-    border-radius: 1em;
-    height: 5vh;
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    box-shadow: rgba(79, 156, 232, 0.7019607843) 3px 3px 5px 0px, rgba(79, 156, 232, 0.7019607843) 5px 5px 20px 0px;
-}
-.barrederecherche{
-    position: absolute;
-    right: 10px;
-}
-form{
-    margin-right: 10px;
-}
-h1{
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
-    margin-top: 9%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 74px;
+    height: 74px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
 }
 
-
-
-
-/* Container pour l'image et le menu */
 .menu-container {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 }
 
-/* Style de l'image */
 #baton {
     cursor: pointer;
-    width: 70%; /* Taille de l'image du menu */
-    height: auto;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 10px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
-/* Menu déroulant, initialement caché */
+#baton:hover {
+    transform: translateY(-2px);
+    background: white;
+}
+
+.barrederecherche {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#barre {
+    width: 210px;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.86);
+    color: white;
+    box-shadow: 0 8px 30px rgba(79, 156, 232, 0.28);
+    outline: none;
+}
+
+#barre::placeholder {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+header {
+    min-height: calc(52vh - 96px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 78px;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    font-size: clamp(4rem, 11vw, 8rem);
+    font-weight: 800;
+    text-shadow: 0 6px 28px rgba(0, 0, 0, 0.55);
+}
+
 .dropdown-menu {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 12px 0 0;
+    padding: 8px;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 200px;
-    background-color: lightblue;
-    display: none; /* Caché par défaut */
-    border-radius: 4px;
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.96);
+    display: none;
+    border: 1px solid rgba(30, 64, 90, 0.16);
+    border-radius: 16px;
     z-index: 10;
+    box-shadow: 0 18px 44px rgba(37, 64, 85, 0.22);
 }
 
 .dropdown-menu li {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid rgba(30, 64, 90, 0.1);
 }
 
 .dropdown-menu li:last-child {
@@ -107,26 +137,26 @@ h1{
 }
 
 .dropdown-menu a {
-    color: black;
-    text-decoration: none;
-    padding: 10px 20px;
+    padding: 13px 14px;
     display: block;
+    border-radius: 11px;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .dropdown-menu a:hover {
-    background-color: rgb(5, 125, 168);
+    background-color: #dff4fb;
 }
 
-/* Animation du menu */
 .dropdown-menu.show {
-    display: block; /* Affiche le menu */
-    animation: slideDown 0.3s ease-out;
+    display: block;
+    animation: slideDown 0.24s ease-out;
 }
 
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
     to {
         opacity: 1;
@@ -134,189 +164,242 @@ h1{
     }
 }
 
-
-
-#backhistoire{
+.downlink {
     display: flex;
     justify-content: center;
 }
-#doublef{
-    margin: 10px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 7%;
-    width: 7%;
+
+#doublef {
+    display: block;
+    width: 58px;
+    height: 58px;
+    margin: 28px auto 64px;
+    padding: 13px;
     transform: rotate(90deg);
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 14px 34px rgba(45, 84, 116, 0.24);
 }
-main{
-    margin: 10px;
+
+main {
+    width: min(1080px, calc(100% - 36px));
+    margin: 0 auto;
 }
-.texteintro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.divintro {
+    margin: 0 auto 54px;
+    border-left: 8px solid #44c1eb;
+    border-right: 1px solid rgba(30, 64, 90, 0.16);
+    border-radius: 24px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 44px rgba(37, 64, 85, 0.15);
+}
+
+.texteintro {
     text-align: center;
-    margin: 10px;
-    border-radius: 2em;
-    font-size: 2rem;
-    height: auto;
-    padding: 10px;
+    margin: 0;
+    border-radius: 24px;
+    font-size: clamp(1.32rem, 2.5vw, 2rem);
+    line-height: 1.18;
+    padding: clamp(26px, 4vw, 46px);
 }
-.divintro{
 
-    border-left: 4px solid  black;
-    border-right: 4px solid black;
-    background-color: whitesmoke;
-    border-radius: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.tqt{
-    width: auto;
-    height: auto;
-    border-radius: 1em;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition-duration: 0.5s;
-    box-shadow: 5px 5px rgba(0, 0, 255, 0.479);
-    border: solid white;
-    font-size: 2rem;
-}
-.tqt:hover{
-    background-color:whitesmoke;
-    color : white;
-    box-shadow: none;
-}
-a{
-    text-decoration: none;
-    color: black;
-}
-h2{
+h2 {
     text-align: center;
-    font-size: 2rem;
-}
-h3{
-    color: blue;
-}
-.imgsite{
-    height: 30px;
-    width: 30px;
-}
-.airbnb{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    font-size: 2rem;
-}
-.hotel{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    font-size: 2rem;
+    font-size: clamp(2.3rem, 5vw, 4.2rem);
+    margin: 0 0 28px;
 }
 
-.avion{
-    margin: 10px;
+h3 {
+    color: #0c49bc;
+    margin: 0 0 12px;
 }
-.loccar{
-    margin: 10px;
-}
-
-
-
 
 .accordion {
     display: flex;
     flex-direction: column;
+    gap: 18px;
     margin: 0 auto;
-  }
-  
-  .accordion-item {
-    width: 97%;
-    margin: 20px;
-    border: 1px solid black;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    overflow: scroll;
-  }
-  
-  .accordion-header {
+}
+
+.accordion-item {
+    width: 100%;
+    border: 1px solid rgba(30, 64, 90, 0.16);
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 36px rgba(37, 64, 85, 0.14);
+}
+
+.accordion-header {
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 28px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3737d6, #239de5);
+    color: white;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+}
+
+.accordion-header::after {
+    content: "+";
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    cursor: pointer;
-    background-color: rgb(55, 55, 214);
-    color: white;
-    font-size: 2rem;
-  }
-  
-  .accordion-header:hover {
-    background-color: dodgerblue;
-  }
-  
-  .accordion-content {
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.accordion-header:hover {
+    background: linear-gradient(90deg, #2525b8, #1e8fd2);
+}
+
+.accordion-content {
     max-height: 0;
-    overflow: scroll;
-    transition: max-height 0.3s ease;
-    padding: 0 15px;
-    font-size: 2rem;
-  }
-  
-  .accordion-content p {
-    margin: 15px 0;
-    color: black;
-  }
-  
-  input[type="checkbox"] {
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 28px;
+    font-size: clamp(1.2rem, 2.4vw, 2rem);
+}
+
+.accordion-content p {
+    margin: 12px 0;
+    color: #17212b;
+}
+
+.airbnb,
+.hotel,
+.avion,
+.loccar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.avion ul {
+    margin: 0;
+    padding-left: 24px;
+    text-align: left;
+}
+
+.airbnb img,
+.hotel img {
+    height: 72px;
+    width: 72px;
+    object-fit: contain;
+}
+
+.hotel .imgsite {
+    width: 110px;
+    height: 60px;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(30, 64, 90, 0.16);
+    margin: 24px 0;
+}
+
+input[type="checkbox"] {
     display: none;
-  }
-  
-  input[type="checkbox"]:checked + .accordion-header + .accordion-content {
-    max-height: 650px;
-  }
-  
+}
 
+input[type="checkbox"]:checked + .accordion-header::after {
+    content: "-";
+}
 
+input[type="checkbox"]:checked + .accordion-header + .accordion-content {
+    max-height: 760px;
+    padding: 26px 28px 32px;
+}
+
+.tqt {
+    min-height: 52px;
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 8px 0 rgba(0, 73, 158, 0.4);
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.86);
+    font: inherit;
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
+    font-weight: 800;
+}
+
+.tqt:hover {
+    transform: translateY(4px);
+    background-color: white;
+    box-shadow: 0 3px 0 rgba(0, 73, 158, 0.4);
+}
+
+a {
+    text-decoration: none;
+    color: #111827;
+}
+
+.tqt a {
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 22px;
+}
 
 footer {
-    position:static;
-    bottom: 0;
-    background-color: #333;
+    background-color: #26323b;
     color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    gap: 18px;
+    margin-top: 92px;
     width: 100%;
-    height: 70px;
-    border-radius: 1em 1em 0em 0em;
-
-}
-.mail{
-    position:absolute;
-    right: 20px;
-}
-.copyright{
-    position:absolute;
-    left: 20px;
+    min-height: 76px;
+    padding: 18px clamp(18px, 5vw, 64px);
+    border-radius: 24px 24px 0 0;
 }
 
+footer p {
+    margin: 0;
+}
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 760px) {
+    nav {
+        height: 84px;
+    }
 
-    .barrederecherche{
+    #logo {
+        width: 62px;
+        height: 62px;
+    }
+
+    .barrederecherche {
         display: none;
     }
 
+    .accordion-header {
+        padding: 18px;
+    }
+
+    input[type="checkbox"]:checked + .accordion-header + .accordion-content {
+        max-height: 900px;
+        padding: 22px 18px 26px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
